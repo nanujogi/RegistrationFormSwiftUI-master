@@ -12,4 +12,4 @@ Checks for validity of email & password.
   <img width="320" height="693" src="http://www.grenleaf.com/registration-form.jpg">
 </p>
 
-That's all!
+Twitter: [@nanujogi](https://twitter.com/nanujogi)
