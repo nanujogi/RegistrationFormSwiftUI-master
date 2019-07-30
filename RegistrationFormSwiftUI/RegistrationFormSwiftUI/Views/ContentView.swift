@@ -8,8 +8,8 @@ struct ContentView : View {
     @State private var name: String = ""
     @State private var terms: Bool = false
     
-    @ObjectBinding var passwordChecker = PasswordChecker()
-    @ObjectBinding var emailChecker = EmailChecker()
+    @ObservedObject var passwordChecker = PasswordChecker()
+    @ObservedObject var emailChecker = EmailChecker()
     
     var body: some View {
         NavigationView {

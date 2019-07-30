@@ -6,20 +6,20 @@ import UIKit
 import SwiftUI
 import Combine
 
-class EmailChecker: BindableObject {
+class EmailChecker: ObservableObject {
     
     public let willChange = PassthroughSubject<EmailChecker, Never>()
     
-    var emailIsValid: Bool = false {
-        didSet {
-            self.willChange.send(self)
+    @Published var emailIsValid: Bool = false {
+        willSet {
+            objectWillChange.send()
         }
     }
     // enum is define in ValidityCheck.swift
     // We use here to send changes to main view.
-    var emaillevel: CheckValidity = .none {
-        didSet {
-            self.willChange.send(self)
+    @Published var emaillevel: CheckValidity = .none {
+        willSet {
+            objectWillChange.send()
         }
     }
     // we get the password user typed in this variable

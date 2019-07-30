@@ -6,20 +6,22 @@ import UIKit
 import SwiftUI
 import Combine
 
-class PasswordChecker: BindableObject {
+class PasswordChecker: ObservableObject {
     
     public let willChange = PassthroughSubject<PasswordChecker, Never>()
     
-    var validity: Bool = false {
+    @Published var validity: Bool = false {
         didSet {
-            self.willChange.send(self)
+            objectWillChange.send()
+ //           self.willChange.send(self)
         }
     }
     // PasswordValidity enum is define in ValidityCheck.swift
     // We use here to send changes to main view.
-    var passwordlevel: CheckValidity = .none {
+    @Published var passwordlevel: CheckValidity = .none {
         didSet {
-            self.willChange.send(self)
+            objectWillChange.send()
+//            self.willChange.send(self)
         }
     }
     // we get the password user typed in this variable
