@@ -1,17 +1,15 @@
 //  PasswordChecker.swift
 //  RegistrationFormSwiftUI
 
-import Foundation
-import UIKit
 import SwiftUI
 import Combine
 
 class PasswordChecker: ObservableObject {
     
-    public let willChange = PassthroughSubject<PasswordChecker, Never>()
+//    public let willChange = PassthroughSubject<PasswordChecker, Never>()
     
     @Published var validity: Bool = false {
-        didSet {
+        willSet {
             objectWillChange.send()
  //           self.willChange.send(self)
         }
@@ -19,7 +17,7 @@ class PasswordChecker: ObservableObject {
     // PasswordValidity enum is define in ValidityCheck.swift
     // We use here to send changes to main view.
     @Published var passwordlevel: CheckValidity = .none {
-        didSet {
+        willSet {
             objectWillChange.send()
 //            self.willChange.send(self)
         }
@@ -41,6 +39,7 @@ class PasswordChecker: ObservableObject {
             print("Password valid")
             validity = true
             passwordlevel = CheckValidity.correct
+            
         // not valid
         } else {
             validity = false

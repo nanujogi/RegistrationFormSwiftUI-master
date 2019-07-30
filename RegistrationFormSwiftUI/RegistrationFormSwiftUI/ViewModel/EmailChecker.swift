@@ -1,14 +1,12 @@
 //  PasswordChecker.swift
 //  RegistrationFormSwiftUI
 
-import Foundation
-import UIKit
 import SwiftUI
 import Combine
 
 class EmailChecker: ObservableObject {
     
-    public let willChange = PassthroughSubject<EmailChecker, Never>()
+//    public let willChange = PassthroughSubject<EmailChecker, Never>()
     
     @Published var emailIsValid: Bool = false {
         willSet {
@@ -25,7 +23,7 @@ class EmailChecker: ObservableObject {
     // we get the password user typed in this variable
     // we check call our function to check validity of password.
     var email: String = "" {
-        didSet {
+        willSet {
             self.checkForemail(email: self.email.lowercased())
         }
     }

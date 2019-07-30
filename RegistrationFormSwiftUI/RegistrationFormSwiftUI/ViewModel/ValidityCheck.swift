@@ -22,11 +22,11 @@ struct ValidityCheck: View {
     func getColor() ->[Color] {
         switch self.textValidity {
         case .none:
-            return [.clear, .clear, .clear]
+            return [.clear]
         case .correct:
-            return [.green, .clear, .clear]
+            return [.green]
         case .wrong:
-            return [.red, .clear, .clear]
+            return [.red]
         }
     }
 }

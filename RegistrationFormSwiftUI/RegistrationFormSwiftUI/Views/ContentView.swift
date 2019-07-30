@@ -18,7 +18,7 @@ struct ContentView : View {
                     TextField("Name here...", text: $name)
                     
                     HStack {
-                        TextField("Email... ", text: $emailChecker.email, onCommit: {self.emailFunc()})
+                        TextField("Email here... ", text: $emailChecker.email, onCommit: {self.emailFunc()})
                         
                         // validity true
                         if self.emailChecker.emailIsValid {
