@@ -16,16 +16,22 @@ struct ContentView : View {
             Form {
                 Section(header: Text("Your Info")) {
                     TextField("Name here...", text: $name)
+                        .keyboardType(.webSearch)
                     
                     HStack {
                         TextField("Email here... ", text: $emailChecker.email, onCommit: {self.emailFunc()})
+                        .keyboardType(.emailAddress)
                         
-                        // validity true
-                        if self.emailChecker.emailIsValid {
-                            ValidityCheck(textValidity: .correct)
-                        }
-                        else {
-                            ValidityCheck(textValidity: .wrong)
+                        // if user has typed anything in email TextField
+                        if emailChecker.email.count > 0 {
+                            if self.emailChecker.emailIsValid {
+                                ValidityCheck(textValidity: .correct)
+                            }
+                            else {
+                                ValidityCheck(textValidity: .wrong)
+                            }
+                        } else {
+                            ValidityCheck(textValidity: .none)
                         }
                     }
                 }
@@ -43,6 +49,7 @@ struct ContentView : View {
                     }
                 }
                 Section {
+//                    if self.passwordChecker.validity && self.emailChecker.emailIsValid {
                     if self.passwordChecker.validity {
                         Toggle(isOn: $terms) {
                             Text("Accept the terms and conditions")

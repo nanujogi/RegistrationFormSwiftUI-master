@@ -37,7 +37,7 @@ class EmailChecker: ObservableObject {
             print("Email is valid \(email)")
             emailIsValid = true
             emaillevel = CheckValidity.correct
-        // not valid
+            // not valid
         } else {
             emailIsValid = false
             emaillevel = CheckValidity.wrong
@@ -66,4 +66,6 @@ class EmailChecker: ObservableObject {
         return  returnValue
     }
 }
+
+
 

@@ -33,14 +33,12 @@ class PasswordChecker: ObservableObject {
     func checkForPassword(password: String) {
         
         // Check if valid password as per requirement is typed by user.
-        let checkit = isValidPassword(password: password)
+        let passIsValid = isValidPassword(password: password)
         
-        if checkit {
+        if passIsValid {
             print("Password valid")
             validity = true
             passwordlevel = CheckValidity.correct
-            
-        // not valid
         } else {
             validity = false
             passwordlevel = CheckValidity.wrong
