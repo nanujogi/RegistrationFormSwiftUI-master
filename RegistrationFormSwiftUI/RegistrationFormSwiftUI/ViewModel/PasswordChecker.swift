@@ -6,22 +6,12 @@ import Combine
 
 class PasswordChecker: ObservableObject {
     
-//    public let willChange = PassthroughSubject<PasswordChecker, Never>()
-    
-    @Published var validity: Bool = false {
-        willSet {
-            objectWillChange.send()
- //           self.willChange.send(self)
-        }
-    }
+    @Published var validity: Bool = false
+        
     // PasswordValidity enum is define in ValidityCheck.swift
     // We use here to send changes to main view.
-    @Published var passwordlevel: CheckValidity = .none {
-        willSet {
-            objectWillChange.send()
-//            self.willChange.send(self)
-        }
-    }
+    @Published var passwordlevel: CheckValidity = .none
+        
     // we get the password user typed in this variable
     // we check call our function to check validity of password.
     var password: String = "" {

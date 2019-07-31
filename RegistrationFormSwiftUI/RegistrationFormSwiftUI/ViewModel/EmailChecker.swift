@@ -54,6 +54,3 @@ class EmailChecker: ObservableObject {
         return  returnValue
     }
 }
-
-
-
