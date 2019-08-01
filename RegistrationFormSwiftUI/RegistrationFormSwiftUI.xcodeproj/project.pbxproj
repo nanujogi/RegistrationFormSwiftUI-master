@@ -17,6 +17,7 @@
 		7ED443C922EEB1ED005BB877 /* ValidityCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED443C822EEB1ED005BB877 /* ValidityCheck.swift */; };
 		7ED443CB22EF0626005BB877 /* EmailChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED443CA22EF0626005BB877 /* EmailChecker.swift */; };
 		7ED571D022EDC07000FC003F /* allSF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED571CF22EDC07000FC003F /* allSF.swift */; };
+		7ED72F1622F31882002A0F00 /* discard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED72F1522F31882002A0F00 /* discard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7ED443C822EEB1ED005BB877 /* ValidityCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidityCheck.swift; sourceTree = "<group>"; };
 		7ED443CA22EF0626005BB877 /* EmailChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailChecker.swift; sourceTree = "<group>"; };
 		7ED571CF22EDC07000FC003F /* allSF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allSF.swift; sourceTree = "<group>"; };
+		7ED72F1522F31882002A0F00 /* discard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = discard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				0A79F13D22CA3C530080ADD7 /* PasswordChecker.swift */,
 				7ED443CA22EF0626005BB877 /* EmailChecker.swift */,
+				7ED72F1522F31882002A0F00 /* discard.swift */,
 				7ED443C822EEB1ED005BB877 /* ValidityCheck.swift */,
 			);
 			path = ViewModel;
@@ -176,6 +179,7 @@
 			files = (
 				0A79F13E22CA3C530080ADD7 /* PasswordChecker.swift in Sources */,
 				0A79F12822CA3C130080ADD7 /* AppDelegate.swift in Sources */,
+				7ED72F1622F31882002A0F00 /* discard.swift in Sources */,
 				7ED571D022EDC07000FC003F /* allSF.swift in Sources */,
 				0A79F12A22CA3C130080ADD7 /* SceneDelegate.swift in Sources */,
 				7ED443CB22EF0626005BB877 /* EmailChecker.swift in Sources */,

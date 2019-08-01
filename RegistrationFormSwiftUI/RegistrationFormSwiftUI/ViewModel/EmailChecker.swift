@@ -5,24 +5,25 @@ import SwiftUI
 import Combine
 
 class EmailChecker: ObservableObject {
+    
+    var cancellable: AnyCancellable?
 
     // https://www.pointfree.co/blog/posts/30-swiftui-and-state-management-corrections
     @Published var emailIsValid: Bool = false
     @Published var emaillevel: CheckValidity = .none
 
-    var email: String = "" {
+    @Published var email: String = "" {
         willSet {
-            self.checkForemail(email: self.email.lowercased())
+            self.checkForemail(email: self.email)
         }
     }
     
     func checkForemail(email: String) {
-        
+
         // Check if valid password as per requirement is typed by user.
-        let checkit = isValidPassword(email: email)
+        let checkit = isValidEmail(email: email)
         
         if checkit {
-            print("Email is valid \(email)")
             emailIsValid = true
             emaillevel = CheckValidity.correct
             // not valid
@@ -32,7 +33,7 @@ class EmailChecker: ObservableObject {
         }
     }
     
-    func isValidPassword(email: String) -> Bool {
+    func isValidEmail(email: String) -> Bool {
         
         var returnValue = true
         // Requires: 1 upper/ 1 special & minimum 6 characters long password
@@ -51,6 +52,9 @@ class EmailChecker: ObservableObject {
             print("invalid regex: \(error.localizedDescription)")
             returnValue = false
         }
+        
+        //TODO: Trial Error
+        
         return  returnValue
     }
 }

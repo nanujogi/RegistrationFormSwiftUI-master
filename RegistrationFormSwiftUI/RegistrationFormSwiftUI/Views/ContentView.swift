@@ -17,10 +17,12 @@ struct ContentView : View {
                 Section(header: Text("Your Info")) {
                     TextField("Name here...", text: $name)
                         .keyboardType(.webSearch)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     
                     HStack {
                         TextField("Email here... ", text: $emailChecker.email, onCommit: {self.emailFunc()})
-                        .keyboardType(.emailAddress)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.alphabet)
                         
                         // if user has typed anything in email TextField
                         if emailChecker.email.count > 0 {
@@ -38,6 +40,7 @@ struct ContentView : View {
                 Section(header: Text("Password")) {
                     HStack {
                         SecureField("Requires numbers, special characters", text: $passwordChecker.password, onCommit: { self.njFunc() })
+                           .textFieldStyle(RoundedBorderTextFieldStyle())
                         
                         // validity true
                         if self.passwordChecker.validity {
@@ -49,12 +52,14 @@ struct ContentView : View {
                     }
                 }
                 Section {
-//                    if self.passwordChecker.validity && self.emailChecker.emailIsValid {
-                    if self.passwordChecker.validity {
+                    //                    if self.passwordChecker.validity && self.emailChecker.emailIsValid {
+                    if self.passwordChecker.validity && self.emailChecker.emailIsValid {
                         Toggle(isOn: $terms) {
                             Text("Accept the terms and conditions")
                         }
-                        if self.terms {
+                        // If user types correct email first time & then removes it we need to check that to.
+                        
+                        if self.terms && self.passwordChecker.validity && self.emailChecker.emailIsValid  {
                             Button(action: {
                                 print("\n✅ Registered your account with\nemail: \(self.emailChecker.email)\npassword: \(self.passwordChecker.password)")
                             }) {
