@@ -8,6 +8,8 @@ struct ContentView : View {
     @State private var name: String = ""
     @State private var terms: Bool = false
     
+    @State private var validatedEMail: String = ""
+    
     @ObservedObject var passwordChecker = PasswordChecker()
     @ObservedObject var emailChecker = EmailChecker()
     
@@ -15,15 +17,17 @@ struct ContentView : View {
         NavigationView {
             Form {
                 Section(header: Text("Your Info")) {
-                    TextField("Name here...", text: $name)
+                    
+                    TextField("myEmail here ...", text: $emailChecker.myEmail)
                         .keyboardType(.webSearch)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+
                     
                     HStack {
-                        TextField("Email here... ", text: $emailChecker.email, onCommit: {self.emailFunc()})
+                        TextField("email here... ", text: $emailChecker.email, onCommit: {self.emailFunc()})
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.alphabet)
-                        
+
                         // if user has typed anything in email TextField
                         if emailChecker.email.count > 0 {
                             if self.emailChecker.emailIsValid {
@@ -37,6 +41,7 @@ struct ContentView : View {
                         }
                     }
                 }
+                
                 Section(header: Text("Password")) {
                     HStack {
                         SecureField("Requires numbers, special characters", text: $passwordChecker.password, onCommit: { self.njFunc() })
@@ -52,6 +57,14 @@ struct ContentView : View {
                     }
                 }
                 Section {
+                    
+                    Text("Validated EMail: \(validatedEMail)")
+                        .onReceive(self.emailChecker.validatedEMail) { newValidatedEMail in
+                            self.validatedEMail = newValidatedEMail != nil ? newValidatedEMail! : "EMail invalid"
+                    }
+
+                    
+                    
                     //                    if self.passwordChecker.validity && self.emailChecker.emailIsValid {
                     if self.passwordChecker.validity && self.emailChecker.emailIsValid {
                         Toggle(isOn: $terms) {
@@ -78,6 +91,6 @@ struct ContentView : View {
     }
     
     func emailFunc() {
-        print("password typed is \($emailChecker.email.value)")
+        print("email typed is \($emailChecker.email.value)")
     }
 }
