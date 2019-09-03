@@ -5,7 +5,7 @@ import Foundation
 
 enum sfFonts: String {
     case circle0, circle00, circleFill0, circleFill00, square0, square00, squareFill0, squareFill00, circle1, circle01, circleFill1, circleFill01,
-   magnifyingglass1, square1, square01, squareFill1, squareFill01, circle2, circle02,
+    magnifyingglass1, square1, square01, squareFill1, squareFill01, circle2, circle02, personperson,
     
     checkmarkCircleFill, checkmarkCircle
     
@@ -49,7 +49,9 @@ enum sfFonts: String {
             return "2.circle"
         case .circle02:
             return "02.circle"
-        
+        case .personperson:
+            return "person.and.person"
+
             
             
             

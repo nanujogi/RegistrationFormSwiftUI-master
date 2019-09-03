@@ -16,7 +16,7 @@ struct ValidityCheck: View {
     var body: some View {
         Image(systemName: sfFonts.getName(.checkmarkCircleFill)())
             .foregroundColor(self.getColor()[0])
-        .font(.headline)
+            .font(.headline)
     }
     
     func getColor() ->[Color] {
@@ -30,4 +30,7 @@ struct ValidityCheck: View {
         }
     }
 }
+
+
+
 

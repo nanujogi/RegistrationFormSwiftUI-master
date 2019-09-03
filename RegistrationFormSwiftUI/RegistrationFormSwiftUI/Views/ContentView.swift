@@ -14,6 +14,7 @@ struct ContentView : View {
     @ObservedObject var emailChecker = EmailChecker()
     
     var body: some View {
+        
         NavigationView {
             Form {
                 Section(header: Text("Your Info")) {
@@ -87,10 +88,10 @@ struct ContentView : View {
     }
     
     func njFunc() {
-        print("password typed is \($passwordChecker.password.value)")
+        print("password typed is \($passwordChecker.password.wrappedValue)")
     }
     
     func emailFunc() {
-        print("email typed is \($emailChecker.email.value)")
+        print("email typed is \($emailChecker.email.wrappedValue)")
     }
 }
